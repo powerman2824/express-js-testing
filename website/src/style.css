@@ -5,3 +5,10 @@ p#first_para {
     color: green;
     font-size: 32px;
 }
+p#next-para {
+    color: hotpink;
+    font-size: 20px;
+}
+br#small-br {
+    padding: 5px;
+}

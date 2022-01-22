@@ -17,10 +17,13 @@ const posts = [
     { title: "Hello Wolrd"},
 ];
 
+// Render htm, html
 let options = {
     extensions: ['htm', 'html'],
     redirect: false,
 }
+
+// Aims an empty request to a static index.html page in src DIR, options render html
 app.use(express.static('src', options));
 
 // Handling a simple route, that sends back a ok 200 response
@@ -31,10 +34,12 @@ app.get('/', (req, res) => {
     });
 });
 
+// An endpoint that routes to a html file in src DIR
 app.get('/hello', (req, res) => {
     res.status(200).send('/src/hello.html');
 });
 
+// 
 app.get('/users', (req, res) => {
     res.status(200).send(users);
 });
