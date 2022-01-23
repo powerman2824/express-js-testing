@@ -15,6 +15,8 @@ const users = [
 ];
 const posts = [
     { title: "Hello Wolrd"},
+    { title: "My Love"},
+    { title: "My Dog"},
 ];
 
 // Render htm, html
@@ -39,7 +41,11 @@ app.get('/hello', (req, res) => {
     res.status(200).send('/src/hello.html');
 });
 
-// 
+app.get('/about', (req, res) => {
+    res.status(200).send('/src/about.html');
+});
+
+// Endpoints that render server side data
 app.get('/users', (req, res) => {
     res.status(200).send(users);
 });
@@ -47,6 +53,27 @@ app.get('/users', (req, res) => {
 app.get('/posts', (req, res) => {
     res.status(200).send(posts);
 });
+
+// A funtion that can dynamically look for data that could exist on the database server-side
+// app.get('users/:name', (req,res) => {
+//     const { name } = req.params;
+//     const users = users.find((users) => users.name === name);
+//     if (users) res.status(200).send(users);
+//     else res.status(400).send('Not Found');
+// });
+
+// app.get('/posts', (req, res) => {
+//     const { title } = req.query;
+//     if (title) {
+//         const post = posts.find((posts) => posts.title === title);
+//         if (posts) {
+//             res.status(200).send(posts);
+//         }
+//         else res.status(400).send('Not Found');
+//     };
+//     res.status(200).send(posts);
+// });
+
 // Where this server is listen to request
 app.listen(port, () => {
     console.log("Server is listening on port 3333")
